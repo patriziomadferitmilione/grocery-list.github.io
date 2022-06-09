@@ -1,7 +1,7 @@
 Grocery List App
 
--add item
--select category and quantity
--remove the item
+-add item <br>
+-select category and quantity <br>
+-remove the item <br>
 
 List handled dynamically
