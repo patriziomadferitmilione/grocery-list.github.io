@@ -70,11 +70,13 @@ const renderNewItemElement = (id, title, category, quantity) => {
   newItemElement.innerHTML = `
     <div class='grocery-element__info'>
       <h3>${category}</h3>
-      <h2>${title}</h2>
-      <p>${quantity}</p>
+      <div class='grocery-item'>
+        <h1>${title}</h1>
+        <p>${quantity}</p>
+      </div>
     </div>
     <div class='grocery-element__delete'>
-      <button id='remove-btn'>Remove</button>
+      <button id='remove-btn'>X</button>
     </div>
   `;
   const listRoot = document.getElementById("grocery-list");
@@ -109,17 +111,6 @@ const addItemHandler = () => {
   const titleValue = userInputs[0].value;
   const categoryValue = userInputs[1].value;
   const quantityValue = userInputs[2].value;
-
-  if (
-    titleValue.trim() === "" ||
-    categoryValue.trim() === "" ||
-    quantityValue.trim() === "" ||
-    +quantityValue < 1 ||
-    +quantityValue > 20
-  ) {
-    alert("Please enter valid values (quantity between 1 and 20).");
-    return;
-  }
 
   const newItem = {
     id: Math.random().toString(),
